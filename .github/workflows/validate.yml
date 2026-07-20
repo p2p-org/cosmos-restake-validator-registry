@@ -4,16 +4,16 @@ jobs:
   validate:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@a37ce9120846195fa4ece8f58b268e6043cb2f26 # v3
 
-      - uses: scheduleonce/lint-filenames@v2.0.0
+      - uses: scheduleonce/lint-filenames@75392a84f4067395160408d49a5e03edfae3b706 # v2.0.0
         name: Validating filenames
         with:
           path: '!(*.schema.json|README*|.gitignore)'
           pattern: '^[a-zA-Z0-9._-]*[^\.]$'
 
       - name: Validate profile.json schema
-        uses: walbo/validate-json@v1.1.0
+        uses: walbo/validate-json@1c24a27a740a698944ff5b697cb8010a72c55c6b # v1.1.0
         with:
           files: ./*/profile.json
           schema: profile.schema.json
@@ -21,7 +21,7 @@ jobs:
           fail-on-missing-schema: true
 
       - name: Validate chains.json schema
-        uses: walbo/validate-json@v1.1.0
+        uses: walbo/validate-json@1c24a27a740a698944ff5b697cb8010a72c55c6b # v1.1.0
         with:
           files: ./*/chains.json
           schema: chains.schema.json
@@ -29,7 +29,7 @@ jobs:
           fail-on-missing-schema: true
 
       - name: Validate services.json schema
-        uses: walbo/validate-json@v1.1.0
+        uses: walbo/validate-json@1c24a27a740a698944ff5b697cb8010a72c55c6b # v1.1.0
         with:
           files: ./*/services.json
           schema: services.schema.json
